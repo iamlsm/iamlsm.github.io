@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet/less" href="./less/products.less">
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="./images/header_logo.png" alt="">;
+            </a>
+        </div>
+        <div class="app">
+            <a href="#">
+                <img src="./images/header_app.png" alt="">
+            </a>
+        </div>
+		<!-- 测试代码 -->
+    </header>
+    <form action="" id="search">
+        <div class="search">
+            <!-- <div class="searchText">
+                            <input type="text" placeholder="请输入你想比价的商品">
+                        </div>
+                        <div class="searchBtn">
+                            <input type="submit" value="搜索">
+                        </div> -->
+        </div>
+    </form>
+
+
+    <div id="products" class="product-list-content">
+        <div class="reorder" id="reorder">
+            <ul>
+                <li>
+                    <a href="#" title="按综合排序" class="active">综合</a>
+                </li>
+                <li>
+                    <a href="#" title="按销量排序">销量</a>
+                </li>
+                <li class="price">
+                    <a href="#" title="按价格排序">价格</a>
+                </li>
+                <li class="filter">
+                    <a href="javascript:;">
+                        <i class="glyphicon glyphicon-align-left"></i>筛选</a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="product-list">
+            <ul>
+                <li>
+                    <div class="media">
+                        <a href="#">
+                            <div class="media-left">
+                                <img src="http://pro.zuyushop.com:8015/ProPic/20169/small80/Thumb_2016090010125379961.png">
+                            </div>
+                            <div class="media-body">
+                                <div class="title">
+                                    双十二二必看： 包、购物补贴券 正式开启
+                                </div>
+                                <div class="price">
+                                    <em>¥</em>6388</div>
+                                <div class="other">
+                                    <span class="mall pull-left">天猫商城 | 10-31 22:00</span>
+                                    <span class="comment pull-right">
+                                        <i class="glyphicon glyphicon-envelope"></i>12229</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="page">
+        <ul>
+            <li>
+                <a href="#">上一页</a>
+            </li>
+            <li>
+                <select class="form-control">
+                    <option>1/5</option>
+                    <option>2/5</option>
+                    <option>3/5</option>
+                    <option>4/5</option>
+                    <option>5/5</option>
+                </select>
+            </li>
+            <li>
+                <a href="#">下一页</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div style="margin-top:25px; line-height:24px; text-align:left; padding-left:10px;">相关链接:
+        <br>
+
+        <a href="distop.html?id=57" style="font-size:12px;">手机十大品牌</a>
+        <br>
+        <a href="listcomment.html?id=57" style="font-size:12px;">手机口碑大全</a>
+
+    </div>
+
+    <footer id="footer">
+        <div class="footTop">
+            <a href="login.aspx">登录</a>
+            <a href="login.aspx">注册</a>
+            <a href="#" style="width: 40%; border: 0;">
+                <img src="./images/top.jpg" width="15" height="15">返回顶部</a>
+        </div>
+        <div class="footBottom">
+            <p>
+                <a href="http://m.manmanbuy.com/app.html?type=footword&amp;value=wap" onclick="trackEvent('footer下载');" style="color: Red;">手机APP下载</a>
+                <a href="http://m.manmanbuy.com">
+                    慢慢买手机版</a> -- 掌上比价平台
+            </p>
+            <p>
+                m.manmanbuy.com
+                <img src="http://c.cnzz.com/wapstat.php?siteid=1256699064&amp;r=http%3a%2f%2fm.manmanbuy.com%2fcuxiao.aspx&amp;rnd=772345412"
+                    width="0" height="0">
+            </p>
+        </div>
+    </footer>
+
+
+    <script type="text/html" id="productData">
+        {{each result as value i}}
+        <li>
+            <div class="media">
+                <a href="bijia.html?productid={{value.productId}}">
+                    <div class="media-left">
+                        {{#value.productImg}}
+                    </div>
+                    <div class="media-body">
+                        <div class="title">
+                            {{value.productName}}
+                        </div>
+                        <div class="price">
+                            <em>¥</em>{{value.productPrice}}</div>
+                        <div class="other">
+                            <span class="mall pull-left">{{value.productQuote}}</span>
+                            <span class="comment pull-right">
+                                <i class="glyphicon glyphicon-envelope"></i>{{value.productCom}}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </li>
+        {{/each}}
+    </script>
+
+    <script type="text/html" id="pageData">
+        <li>
+            <a href="
+                {{if pageId!=1}}
+                products.html?page={{pageId-1}}&id={{categoryid}}
+                {{/if}}
+                {{if pageId==1}}
+                javascript:void(0);
+                {{/if}}
+            ">上一页</a>
+        </li>
+        <li>
+            <select id='pageData' class="form-control">
+                {{each pageNum as value i}}
+                {{if i==pageId-1}}
+                <option value='{{value}}' selected='selected'>{{value}}/{{pageAll}}</option>
+                {{/if}}
+                {{if i!=pageId-1}}
+                <option value='{{value}}'>{{value}}/{{pageAll}}</option>
+                {{/if}}
+                {{/each}}
+            </select>
+        </li>
+        <li>
+            <a href="
+            {{if pageId!=pageAll}}
+            products.html?page={{pageJia}}&id={{categoryid}}
+            {{/if}}
+            {{if pageId==pageAll}}
+            javascript:void(0);
+            {{/if}}
+            ">下一页</a>
+        </li>
+		
+		
+		
+
+    </script>
+
+
+    <script src="lib/template/template.js"></script>
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="js/products.js"></script>
+	
+</body>
+
+</html>

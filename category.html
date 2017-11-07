@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        产品分类 - 慢慢买比价网</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet/less" href="./less/category.less">
+    <script src="./lib/less/less.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo">
+            <a href="#">
+                <img src="./images/header_logo.png" alt="">;
+            </a>
+        </div>
+        <div class="app">
+            <a href="#">
+                <img src="./images/header_app.png" alt="">
+            </a>
+        </div>
+    </header>
+    <form action="" id="search">
+        <div class="search">
+            <!-- <div class="searchText">
+                        <input type="text" placeholder="请输入你想比价的商品">
+                    </div>
+                    <div class="searchBtn">
+                        <input type="submit" value="搜索">
+                    </div> -->
+        </div>
+    </form>
+    <div id="main">
+        <div class="content">
+            <div class="main-title">
+                <a href="#">
+                    大 家 电
+                    <i class="glyphicon glyphicon-menu-down"></i>
+                </a>
+
+            </div>
+            <table class="main-body" display='none'>
+                <tbody>
+                    <tr>
+                        <td>平板电视</td>
+                        <td>平板电视</td>
+                        <td>平板电视</td>
+                    </tr>
+                    <tr>
+                        <td>平板电视</td>
+                        <td>平板电视</td>
+                        <td>平板电视</td>
+                    </tr>
+                    <tr>
+                        <td>平板电视</td>
+                        <td>平板电视</td>
+                        <td>平板电视</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <footer id="footer">
+
+
+        <div class="footTop">
+            <a href="login.aspx">登录</a>
+            <a href="login.aspx">注册</a>
+            <a href="#" style="width: 40%; border: 0;">
+                <img src="./images/top.jpg" width="15" height="15">返回顶部</a>
+        </div>
+        <div class="footBottom">
+            <p>
+                <a href="http://m.manmanbuy.com/app.html?type=footword&amp;value=wap" onclick="trackEvent('footer下载');" style="color: Red;">手机APP下载</a>
+                <a href="http://m.manmanbuy.com">
+                    慢慢买手机版</a> -- 掌上比价平台
+            </p>
+            <p>
+                m.manmanbuy.com
+                <img src="http://c.cnzz.com/wapstat.php?siteid=1256699064&amp;r=http%3a%2f%2fm.manmanbuy.com%2fcuxiao.aspx&amp;rnd=772345412"
+                    width="0" height="0">
+            </p>
+        </div>
+    </footer>
+
+
+
+    <script src="lib/template/template.js"></script>
+    <!-- 产品分类 -->
+    <script type="text/html" id="mainData">
+        {{each result as value i}}
+        <div class="main-title" data-id='{{value.titleId}}'>
+            <a href="#">
+                {{value.title}}
+                <i class="glyphicon glyphicon-menu-down"></i>
+            </a>
+            <table class="main-body">
+
+            </table>
+        </div>
+
+        {{/each}}
+    </script>
+
+    <script type="text/html" id="tableData">
+        <tbody>
+            <tr>
+                {{each result as value i}} {{if i>=0&&i
+                <3}} 
+                <td>
+                    <a href="products.html?id={{value.categoryId}}">{{value.category}}</a>
+                </td>
+                    {{/if}} {{/each}}
+            </tr>
+            <tr>
+                {{each result as value i}} {{if i>=3&&i
+                <6}} <td><a href="products.html?id={{value.categoryId}}">{{value.category}}</a></td>
+                    {{/if}} {{/each}}
+            </tr>
+            <tr>
+                {{each result as value i}} {{if i>=6&&i
+                <9}} <td><a href="products.html?id={{value.categoryId}}">{{value.category}}</a></td>
+                    {{/if}} {{/each}}
+            </tr>
+            <tr>
+                {{each result as value i}} {{if i>=9&&i
+                <12}} <td><a href="products.html?id={{value.categoryId}}">{{value.category}}</a></td>
+                    {{/if}} {{/each}}
+            </tr>
+            <tr>
+                {{each result as value i}} {{if i>=12&&i
+                <15}} <td><a href="products.html?id={{value.categoryId}}">{{value.category}}</a></td>
+                    {{/if}} {{/each}}
+            </tr>
+            <tr>
+                {{each result as value i}} {{if i>=15&&i
+                <18}} <td><a href="products.html?id={{value.categoryId}}">{{value.category}}</a></td>
+                    {{/if}} {{/each}}
+            </tr>
+            <tr>
+                {{each result as value i}} {{if i>=18&&i
+                <21}} <td><a href="products.html?id={{value.categoryId}}">{{value.category}}</a></td>
+                    {{/if}} {{/each}}
+            </tr>
+            <tr>
+                {{each result as value i}} {{if i>=21&&i
+                <24}} <td><a href="products.html?id={{value.categoryId}}">{{value.category}}</a></td>
+                    {{/if}} {{/each}}
+            </tr>
+        </tbody>
+    </script>
+
+
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="./js/category.js"></script>
+</body>
+
+</html>
